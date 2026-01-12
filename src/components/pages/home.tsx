@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2, Palette, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Components } from "../components";
 
 export const Home = () => {
   return (
@@ -102,6 +103,9 @@ export const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/*components Section*/}
+      <Components />
     </div>
   );
 };

@@ -13,7 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Code2, Zap, FileCode } from "lucide-react";
-import { CodeBlock, CopyButton } from "../ui/code-block";
+import { CopyButton } from "../ui/copy-button";
 
 export const Documentation = () => {
   return (
