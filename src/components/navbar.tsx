@@ -8,7 +8,7 @@ import { Menu } from "lucide-react";
 import { ThemeButton } from "./ui/theme-button";
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<false | true>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.nav
@@ -58,7 +58,7 @@ export const Navbar = () => {
                   Home
                 </Link>
                 <Link
-                  to="/docs"
+                  to="/documentation"
                   className="px-2 text-sm font-medium transition-colors rounded-lg hover:text-primary hover:bg-primary-foreground"
                   onClick={() => setIsOpen(false)}
                 >

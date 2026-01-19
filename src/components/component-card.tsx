@@ -1,7 +1,9 @@
 import type { Component } from "@/data/components-data";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Badge } from "./ui/badge";
+import { Frame } from "./ui/frame";
 
 type ComponentProp = {
   component: Component;
@@ -20,8 +22,21 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
     >
       {/*Preview Section*/}
       <div className="group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col">
-        <div className="p-8 bg-muted/30 flex justify-center items-center min-h-[200px]">
-          <PreviewComponent />
+        <div
+          className={cn(
+            "bg-muted/30 min-h-[200px] relative @container",
+            component.layout === "fullscreen"
+              ? "flex flex-col"
+              : "p-8 flex justify-center items-center",
+          )}
+        >
+          {component.isolate ? (
+            <Frame className="w-full flex-1 min-h-[200px] border-0">
+              <PreviewComponent />
+            </Frame>
+          ) : (
+            <PreviewComponent />
+          )}
         </div>
 
         {/*Information Section*/}

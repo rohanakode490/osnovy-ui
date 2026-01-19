@@ -71,7 +71,7 @@ export const Home = () => {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/docs">Read Documentation</Link>
+              <Link to="/documentation">Read Documentation</Link>
             </Button>
           </motion.div>
 
