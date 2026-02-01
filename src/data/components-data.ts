@@ -28,17 +28,6 @@ export interface Component {
 
 export const components: Component[] = [
     {
-        id: "animated-loader",
-        name: "Animated Loader",
-        description: "Smooth Spinning Loader",
-        category: "loaders",
-        preview: AnimatedLoader,
-        code: AnimatedLoaderCode,
-        usage:
-            "Perfect for loading states. Add this while fetching data or processing requests.",
-        installation: ["npm install framer-motion"],
-    },
-    {
         id: "glass-card",
         name: "Glass Card",
         description: "Modern Frosted Glass Effect",
@@ -57,6 +46,18 @@ export const components: Component[] = [
         code: TiltCardCode,
         usage: "A card that tilts in 3D space on hover. Great for feature highlights.",
         installation: ["npm install framer-motion"],
+    },
+    {
+        id: "responsive-navbar",
+        name: "Responsive Navbar",
+        description: "Adaptive Navigation Bar",
+        category: "navigation",
+        preview: ResponsiveNavbar,
+        code: ResponsiveNavbarCode,
+        usage: "A fully responsive navbar with a mobile toggle and smooth animations.",
+        installation: ["npm install framer-motion lucide-react"],
+        layout: "fullscreen",
+        isolate: true,
     },
     {
         id: "status-badge",
@@ -91,15 +92,14 @@ export const components: Component[] = [
         layout: "fullscreen",
     },
     {
-        id: "responsive-navbar",
-        name: "Responsive Navbar",
-        description: "Adaptive Navigation Bar",
-        category: "navigation",
-        preview: ResponsiveNavbar,
-        code: ResponsiveNavbarCode,
-        usage: "A fully responsive navbar with a mobile toggle and smooth animations.",
-        installation: ["npm install framer-motion lucide-react"],
-        layout: "fullscreen",
-        isolate: true,
+    id: "animated-loader",
+    name: "Animated Loader",
+    description: "Smooth Spinning Loader",
+    category: "loaders",
+    preview: AnimatedLoader,
+    code: AnimatedLoaderCode,
+    usage:
+        "Perfect for loading states. Add this while fetching data or processing requests.",
+    installation: ["npm install framer-motion"],
     },
 ];

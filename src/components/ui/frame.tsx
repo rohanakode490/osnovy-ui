@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -47,6 +47,9 @@ export function Frame({ children, ...props }: FrameProps) {
     // Sync Theme class
     const root = doc.documentElement;
     root.classList.remove("light", "dark");
+    // Ensure body takes full height and centers content
+    doc.body.className = "m-0 min-h-screen flex flex-col justify-center";
+    
     if (theme === 'system') {
          const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
          root.classList.add(systemTheme);

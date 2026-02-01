@@ -5,7 +5,7 @@ interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-export function GlassCard({ className, children, ...props }: GlassCardProps) {
+export function GlassCard({ className, children }: GlassCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,6 @@ export function GlassCard({ className, children, ...props }: GlassCardProps) {
         "hover:bg-white/20 hover:border-white/30 transition-colors duration-300",
         className
       )}
-      {...props}
     >
       <div className="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-purple-500/30 blur-3xl" />
       <div className="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-blue-500/30 blur-3xl" />

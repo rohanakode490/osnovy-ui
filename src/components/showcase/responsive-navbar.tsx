@@ -18,8 +18,8 @@ export function ResponsiveNavbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="relative w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <nav className="mx-auto w-full max-w-4xl border bg-background/80 backdrop-blur-md shadow-lg">
+      <div className="flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-xl">
           <div className="rounded-lg bg-primary p-1 text-primary-foreground">
@@ -60,9 +60,9 @@ export function ResponsiveNavbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-b md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden"
           >
-            <div className="flex flex-col gap-4 px-6 py-4">
+            <div className="flex flex-col gap-4 px-6 pb-6 pt-2">
               {navItems.map((item) => (
                 <a
                   key={item.label}
