@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Badge } from "./ui/badge";
 import { Frame } from "./ui/frame";
+import { ArrowUpRight } from "lucide-react";
 
 type ComponentProp = {
   component: Component;
@@ -21,7 +22,15 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
       transition={{ delay: index * 0.1 }}
     >
       {/*Preview Section*/}
-      <div className="group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col">
+      <div className="group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col relative">
+        <Link
+          to={`/component/${component.id}`}
+          className="absolute top-3 right-3 z-20 p-2 rounded-full bg-background/80 backdrop-blur-md border border-border opacity-0 group-hover:opacity-100 transition-all hover:bg-primary hover:text-primary-foreground"
+          aria-label="View Details"
+        >
+          <ArrowUpRight className="h-4 w-4" />
+        </Link>
+
         <div
           className={cn(
             "bg-muted/30 min-h-[200px] relative @container",

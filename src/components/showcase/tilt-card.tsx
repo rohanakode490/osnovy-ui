@@ -56,7 +56,7 @@ export function TiltCard({ className, children}: TiltCardProps) {
         perspective: 1000,
       }}
       className={cn(
-        "relative h-full w-full rounded-xl bg-card border text-card-foreground shadow-sm",
+        "relative h-full max-w-lg rounded-xl bg-card border text-card-foreground shadow-sm",
         "flex flex-col items-center justify-center p-8 text-center",
         className
       )}
