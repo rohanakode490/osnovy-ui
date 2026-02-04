@@ -25,7 +25,7 @@ export function ResponsiveNavbar() {
           <div className="rounded-lg bg-primary p-1 text-primary-foreground">
             <Code2 size={20} />
           </div>
-          <span>DevUI</span>
+          <span>Osnovy</span>
         </div>
 
         {/* Desktop Menu */}
@@ -46,7 +46,7 @@ export function ResponsiveNavbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+          className="md:hidden p-2 text-muted-foreground hover:text-foreground cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
