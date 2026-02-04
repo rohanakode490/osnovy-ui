@@ -1,7 +1,5 @@
 import { AnimatedLoader } from "@/components/showcase/animated-loader";
 import AnimatedLoaderCode from "@/components/showcase/animated-loader?raw";
-import { GlassCard } from "@/components/showcase/glass-card";
-import GlassCardCode from "@/components/showcase/glass-card?raw";
 import { TiltCard } from "@/components/showcase/tilt-card";
 import TiltCardCode from "@/components/showcase/tilt-card?raw";
 import { StatusBadge } from "@/components/showcase/status-badge";
@@ -27,16 +25,6 @@ export interface Component {
 }
 
 export const components: Component[] = [
-    {
-        id: "glass-card",
-        name: "Glass Card",
-        description: "Modern Frosted Glass Effect",
-        category: "cards",
-        preview: GlassCard,
-        code: GlassCardCode,
-        usage: "Use this card for overlays or to add a modern touch to your UI.",
-        installation: ["npm install framer-motion"],
-    },
     {
         id: "tilt-card",
         name: "3D Tilt Card",
