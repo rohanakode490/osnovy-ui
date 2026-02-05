@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# OsnovyUI - Modern React Component Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+OsnovyUI is a sleek, interactive showcase for high-quality React components. Built with the latest web technologies, it provides a "copy-paste" friendly environment for developers to explore, interact with, and integrate beautiful UI elements into their own projects.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Showcase**: Live previews of components with real-time interaction (Tilt cards, Glassmorphism, etc.).
+- **Modern Tech Stack**: Leveraging React 19, Tailwind CSS v4, and Framer Motion.
+- **Responsive Design**: Fully optimized for mobile and desktop, featuring a floating "pill" navigation system.
+- **Code Highlighting**: Instant access to installation steps and component source code via Shiki.
+- **Theme Support**: Seamless Dark/Light mode switching.
+- **Isolated Previews**: Components are rendered in isolated frames to ensure styling consistency.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation**: [Motion (Framer Motion)](https://motion.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **UI Primitives**: [Radix UI](https://www.radix-ui.com/)
+- **Syntax Highlighting**: [Shiki](https://shiki.style/)
 
-## Expanding the ESLint configuration
+## 🛠️ Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (Latest LTS recommended)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone https://github.com/rohanakode490/osnovy-ui.git
+   cd osnovy-ui
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Install dependencies:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Scripts
+
+- `npm run dev`: Start development server.
+- `npm run build`: Build for production.
+- `npm run lint`: Run ESLint to check for code quality issues.
+- `npm run preview`: Preview the production build locally.
+
+## 📁 Project Structure
+
+- `src/components/ui/`: Core reusable UI primitives (shadcn/ui style).
+- `src/components/showcase/`: Featured components for the gallery.
+- `src/data/components-data.ts`: Central metadata source for the showcase.
+- `src/pages/`: Main application routing pages.
+- `src/hooks/`: Custom React hooks (e.g., `useTheme`).
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
