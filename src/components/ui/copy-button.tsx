@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Check, Copy } from "lucide-react";
-import { Button } from "./button";
+import { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
+import { Button } from './button';
 
 type CopyButtonProps = {
   text: string;
   className?: string;
 };
 
-export const CopyButton = ({ text, className = "" }: CopyButtonProps) => {
+export const CopyButton = ({ text, className = '' }: CopyButtonProps) => {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
@@ -20,17 +20,17 @@ export const CopyButton = ({ text, className = "" }: CopyButtonProps) => {
   return (
     <Button
       onClick={handleCopy}
-      size="sm"
-      variant="outline"
+      size='sm'
+      variant='outline'
       className={`bg-background/80 backdrop-blur-sm ${className}`}
     >
       {copied ? (
         <>
-          <Check className="h-3 w-3" />
+          <Check className='h-3 w-3' />
           Copied
         </>
       ) : (
-        <Copy className="h-3 w-3" />
+        <Copy className='h-3 w-3' />
       )}
     </Button>
   );

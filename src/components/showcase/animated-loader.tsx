@@ -1,14 +1,14 @@
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
-export const AnimatedLoader = () => {
+export function AnimatedLoader() {
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className='flex flex-col items-center gap-4'>
       <motion.div
-        className="h-12 w-12 rounded-full border-4 border-muted border-t-primary"
+        className='h-12 w-12 rounded-full border-4 border-muted border-t-primary'
         animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
       />
-      <p className="text-sm text-muted-foreground">Loading...</p>
+      <p className='text-sm text-muted-foreground'>Loading...</p>
     </div>
   );
-};
+}

@@ -1,10 +1,10 @@
-import type { Component } from "@/data/components-data";
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
-import { Link } from "react-router-dom";
-import { Badge } from "./ui/badge";
-import { Frame } from "./ui/frame";
-import { ArrowUpRight } from "lucide-react";
+import type { Component } from '@/data/components-data';
+import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { Badge } from './ui/badge';
+import { Frame } from './ui/frame';
+import { ArrowUpRight } from 'lucide-react';
 
 type ComponentProp = {
   component: Component;
@@ -22,25 +22,25 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
       transition={{ delay: index * 0.1 }}
     >
       {/*Preview Section*/}
-      <div className="group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col relative">
+      <div className='group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col relative'>
         <Link
           to={`/component/${component.id}`}
-          className="absolute top-3 right-3 z-20 p-2 rounded-full bg-background/80 backdrop-blur-md border border-border opacity-0 group-hover:opacity-100 transition-all hover:bg-primary hover:text-primary-foreground"
-          aria-label="View Details"
+          className='absolute top-3 right-3 z-20 p-2 rounded-full bg-background/80 backdrop-blur-md border border-border opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-primary hover:text-primary-foreground'
+          aria-label='View Details'
         >
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className='h-4 w-4' />
         </Link>
 
         <div
           className={cn(
-            "bg-muted/30 min-h-[200px] relative @container",
-            component.layout === "fullscreen"
-              ? "flex flex-col"
-              : "p-8 flex justify-center items-center",
+            'bg-muted/30 min-h-[200px] relative @container',
+            component.layout === 'fullscreen'
+              ? 'flex flex-col'
+              : 'p-8 flex justify-center items-center'
           )}
         >
           {component.isolate ? (
-            <Frame className="w-full flex-1 min-h-[200px] border-0">
+            <Frame className='w-full flex-1 min-h-[200px] border-0'>
               <PreviewComponent />
             </Frame>
           ) : (
@@ -51,20 +51,20 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
         {/*Information Section*/}
         <Link
           to={`/component/${component.id}`}
-          className="group/link p-6 flex-1 cursor-pointer transition-colors relative overflow-hidden"
+          className='group/link p-6 flex-1 cursor-pointer transition-colors relative overflow-hidden'
         >
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+          <div className='flex items-center justify-between gap-3'>
+            <h3 className='text-lg font-semibold group-hover:text-primary transition-colors'>
               {component.name}
             </h3>
-            <Badge variant="secondary" className="shrink-0">
+            <Badge variant='secondary' className='shrink-0'>
               {component.category}
             </Badge>
           </div>
           {/* Hover arrow overlay - right side with blur background */}
-          <div className="absolute inset-y-0 right-2 left-3/4 flex items-center opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 pointer-events-none">
-            <div className="ml-auto h-full w-full flex items-center justify-end px-6 backdrop-blur-sm bg-background/60">
-              <span className="text-2xl font-bold text-primary">&gt;</span>
+          <div className='absolute inset-y-0 right-2 left-3/4 flex items-center opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 pointer-events-none'>
+            <div className='ml-auto h-full w-full flex items-center justify-end px-6 backdrop-blur-sm bg-background/60'>
+              <span className='text-2xl font-bold text-primary'>&gt;</span>
             </div>
           </div>
         </Link>

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 interface GridBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
@@ -15,19 +15,19 @@ export function GridBackground({
   return (
     <div
       className={cn(
-        "relative h-full w-full overflow-hidden bg-background",
+        'relative h-full w-full overflow-hidden bg-background',
         className
       )}
       {...props}
     >
       <div
-        className="absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+        className='absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'
         style={{
           backgroundImage: `linear-gradient(to right, var(--color-border) ${strokeWidth}px, transparent ${strokeWidth}px), linear-gradient(to bottom, var(--color-border) ${strokeWidth}px, transparent ${strokeWidth}px)`,
           backgroundSize: `${size}px ${size}px`,
         }}
       />
-      <div className="relative z-10">{children}</div>
+      <div className='relative z-10'>{children}</div>
     </div>
   );
 }
