@@ -47,15 +47,33 @@ export function Frame({ children, ...props }: FrameProps) {
     updateStyles();
 
     // Sync Theme class
+
     const root = doc.documentElement;
+
     root.classList.remove('light', 'dark');
+
+    // Reset backgrounds to transparent so parent's bg-muted/30 shows through
+
+    if (root) {
+      root.style.setProperty('background-color', 'transparent', 'important');
+    }
+
+    if (doc.body) {
+      doc.body.style.setProperty(
+        'background-color',
+        'transparent',
+        'important'
+      );
+    }
+
     // Ensure body takes full height and centers content
     doc.body.classList.add(
       'm-0',
       'min-h-screen',
       'flex',
       'flex-col',
-      'justify-center'
+      'justify-center',
+      'bg-card/10'
     );
 
     if (theme === 'system') {

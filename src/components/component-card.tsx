@@ -33,7 +33,7 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
 
         <div
           className={cn(
-            'bg-muted/30 min-h-[200px] relative @container',
+            'bg-card/10 min-h-[200px] relative @container',
             component.layout === 'fullscreen'
               ? 'flex flex-col'
               : 'p-8 flex justify-center items-center'

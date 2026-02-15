@@ -12,6 +12,8 @@ import { ResponsiveNavbar } from '@/components/showcase/responsive-navbar';
 import ResponsiveNavbarCode from '@/components/showcase/responsive-navbar?raw';
 import { AnimatedAvatar } from '@/components/showcase/animated-avatar';
 import AnimatedAvatarCode from '@/components/showcase/animated-avatar?raw';
+import { NavigationBar } from '@/components/showcase/navigation-bar';
+import NavigationBarCode from '@/components/showcase/navigation-bar?raw';
 
 export interface Component {
   id: string;
@@ -105,5 +107,16 @@ export const components: Component[] = [
     usage:
       'A smooth avatar transition with a circular progress indicator. Requires custom "@keyframes progress" in your global CSS.',
     installation: ['npm install framer-motion', 'npx shadcn@latest add avatar'],
+  },
+  {
+    id: 'navigation-bar',
+    name: 'Navigation Bar',
+    description: 'Smooth Navigation Bar with Animated Hover Effect',
+    category: 'navigation',
+    preview: NavigationBar,
+    code: NavigationBarCode,
+    usage:
+      'A sleek navigation bar with a sliding underline effect that follows the active and hovered items.',
+    installation: ['npm install motion', 'npx shadcn@latest add button'],
   },
 ];
