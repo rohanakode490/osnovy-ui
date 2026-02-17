@@ -59,7 +59,7 @@ OsnovyUI is a sleek, interactive showcase for high-quality React components. Bui
 
 - `src/components/ui/`: Core reusable UI primitives (shadcn/ui style).
 - `src/components/showcase/`: Featured components for the gallery.
-- `src/data/components-data.ts`: Central metadata source for the showcase.
+- `src/data/components-data.tsx`: Central metadata source for the showcase.
 - `src/pages/`: Main application routing pages.
 - `src/hooks/`: Custom React hooks (e.g., `useTheme`).
 

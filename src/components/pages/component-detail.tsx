@@ -117,28 +117,82 @@ export const ComponentDetail = () => {
                   </div>
 
                   {/*React Code*/}
-                  <div>
-                    <h4 className='my-2 text-sm font-semibold'>
-                      Component Code
-                    </h4>
-                    <div className='relative'>
-                      <CopyButton
-                        text={component.code}
-                        className='absolute right-2 top-2 z-10'
-                      />
-                      <ShikiHighlighter
-                        theme='monokai'
-                        language='tsx'
-                        showLanguage={false}
-                        style={{
-                          borderRadius: '0.5rem',
-                          fontSize: '0.875rem',
-                          border: '1px solid hsl(var(--border) / 0.5)',
-                        }}
-                      >
-                        {component.code}
-                      </ShikiHighlighter>
+                  <div className='space-y-6'>
+                    <div>
+                      <h4 className='my-2 text-sm font-semibold'>
+                        Component Code
+                      </h4>
+                      <div className='relative'>
+                        <CopyButton
+                          text={component.code}
+                          className='absolute right-2 top-2 z-10'
+                        />
+                        <ShikiHighlighter
+                          theme='monokai'
+                          language='tsx'
+                          showLanguage={false}
+                          style={{
+                            borderRadius: '0.5rem',
+                            fontSize: '0.875rem',
+                            border: '1px solid hsl(var(--border) / 0.5)',
+                          }}
+                        >
+                          {component.code}
+                        </ShikiHighlighter>
+                      </div>
                     </div>
+
+                    {component.hook && (
+                      <div>
+                        <h4 className='mb-2 text-sm font-semibold'>
+                          use-theme Hook
+                        </h4>
+                        <div className='relative'>
+                          <CopyButton
+                            text={component.hook}
+                            className='absolute right-2 top-2 z-10'
+                          />
+                          <ShikiHighlighter
+                            theme='monokai'
+                            language='tsx'
+                            showLanguage={false}
+                            style={{
+                              borderRadius: '0.5rem',
+                              fontSize: '0.875rem',
+                              border: '1px solid hsl(var(--border) / 0.5)',
+                            }}
+                          >
+                            {component.hook}
+                          </ShikiHighlighter>
+                        </div>
+                      </div>
+                    )}
+
+                    {component.css && (
+                      <div>
+                        <h4 className='mb-2 text-sm font-semibold'>
+                          Global CSS (Circular Reveal)
+                        </h4>
+                        <div className='relative'>
+                          <CopyButton
+                            text={component.css}
+                            className='absolute right-2 top-2 z-10'
+                          />
+                          <ShikiHighlighter
+                            theme='monokai'
+                            language='css'
+                            showLanguage={false}
+                            style={{
+                              borderRadius: '0.5rem',
+                              fontSize: '0.875rem',
+                              border: '1px solid hsl(var(--border) / 0.5)',
+                            }}
+                          >
+                            {component.css}
+                          </ShikiHighlighter>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>

@@ -190,3 +190,20 @@
   padding: 0rem 2rem;
   text-align: center;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+::view-transition-new(root) {
+  z-index: 100;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}

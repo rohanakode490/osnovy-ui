@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import {
+import React, {
   createContext,
   useContext,
   useEffect,
@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
+import { flushSync } from 'react-dom';
 
 type Theme = 'dark' | 'light' | 'system';
 
@@ -18,7 +19,7 @@ interface ThemeProviderProps {
 
 interface ThemeContextValue {
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  setTheme: (theme: Theme, event?: React.MouseEvent, transitionType?: 'circle' | 'star' | 'left-to-right' | 'bouncy-linear') => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
@@ -50,9 +51,27 @@ export function ThemeProvider({
   const value = useMemo(
     () => ({
       theme,
-      setTheme: (newTheme: Theme) => {
-        localStorage.setItem(storageKey, newTheme);
-        setTheme(newTheme);
+      setTheme: (newTheme: Theme, event?: React.MouseEvent, transitionType: 'circle' | 'star' | 'left-to-right' | 'bouncy-linear' = 'circle') => {
+        if (!document.startViewTransition || !event) {
+          localStorage.setItem(storageKey, newTheme);
+          setTheme(newTheme);
+          return;
+        }
+
+        const x = event.clientX;
+        const y = event.clientY;
+
+        document.documentElement.style.setProperty('--x', `${x}px`);
+        document.documentElement.style.setProperty('--y', `${y}px`);
+        document.documentElement.setAttribute('data-transition', transitionType);
+        document.documentElement.setAttribute('data-direction', newTheme === 'dark' ? 'left' : 'right');
+
+        document.startViewTransition(() => {
+          flushSync(() => {
+            localStorage.setItem(storageKey, newTheme);
+            setTheme(newTheme);
+          });
+        });
       },
     }),
     [theme, storageKey]
