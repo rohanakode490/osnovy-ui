@@ -28,7 +28,7 @@ export function ThemeToggleLRButton() {
           <Button
       variant='ghost'
       size='icon'
-      onClick={(e) => setTheme(theme === 'dark' ? 'light' : 'dark', e)}
+      onClick={(e) => setTheme(theme === 'dark' ? 'light' : 'dark', e, 'left-to-right')}
       className='cursor-pointer'
     >
       <Sun className='h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
