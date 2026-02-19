@@ -85,7 +85,7 @@ export const components: Component[] = [
     description: 'The official app toggle',
     category: 'animations',
     preview: () => (
-      <ThemePreviewWrapper caption='Standard Reveal'>
+      <ThemePreviewWrapper caption='Circular Reveal'>
         <ThemeToggleClassic />
       </ThemePreviewWrapper>
     ),
@@ -98,11 +98,11 @@ export const components: Component[] = [
   },
   {
     id: 'theme-bouncy-switch',
-    name: 'Bouncy Pill Switch',
+    name: 'Circular Reveal Switch',
     description: 'Sliding switch with bouncy reveal',
     category: 'animations',
     preview: () => (
-      <ThemePreviewWrapper caption='Elastic Expansion'>
+      <ThemePreviewWrapper caption='Circular Expansion'>
       <ThemeToggleBouncySwitch />
       </ThemePreviewWrapper>
     ),
@@ -111,7 +111,7 @@ export const components: Component[] = [
     css: themeToggleCSS,
     usage:
       'A pill-shaped switch that triggers a bouncy-linear circular reveal transition.',
-    installation: ['npm install motion' ],
+    installation: ['npm install motion'],
   },
   {
     id: 'theme-linear-button',
@@ -119,7 +119,7 @@ export const components: Component[] = [
     description: 'Custom complex easing transition',
     category: 'animations',
     preview: () => (
-      <ThemePreviewWrapper caption='Vertical Slide'>
+      <ThemePreviewWrapper caption='Vertical Bounce'>
         <ThemeToggleBouncyLinearButton />
       </ThemePreviewWrapper>
     ),
@@ -132,11 +132,11 @@ export const components: Component[] = [
   },
   {
     id: 'theme-linear-switch',
-    name: 'Elastic Slide Switch',
+    name: 'Vertical Bounce Switch',
     description: 'Switch with custom linear easing',
     category: 'animations',
     preview: () => (
-      <ThemePreviewWrapper caption='Industrial Reveal'>
+      <ThemePreviewWrapper caption='Vertical Bounce'>
         <ThemeToggleBouncyLinearSwitch />
       </ThemePreviewWrapper>
     ),
@@ -170,7 +170,7 @@ export const components: Component[] = [
     description: 'Sliding switch with directional reveal',
     category: 'animations',
     preview: () => (
-      <ThemePreviewWrapper caption='View Transition'>
+      <ThemePreviewWrapper caption='Directional Slide'>
         <ThemeToggleLRSwitch />
       </ThemePreviewWrapper>
     ),
