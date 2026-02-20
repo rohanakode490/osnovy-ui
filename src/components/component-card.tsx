@@ -19,7 +19,7 @@ export const ComponentCard = ({ component, index }: ComponentProp) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
+      transition={{ delay: (index % 3) * 0.1 }}
     >
       {/*Preview Section*/}
       <div className='group border border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg h-full flex flex-col relative'>

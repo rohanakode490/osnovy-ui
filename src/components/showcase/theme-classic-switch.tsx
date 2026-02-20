@@ -4,14 +4,14 @@ import { useTheme } from '@/hooks/use-theme';
 import { motion } from 'motion/react';
 import { Sun, Moon } from 'lucide-react';
 
-export function ThemeToggleBouncySwitch() {
+export function ThemeToggleSwitch() {
   const { theme, setTheme } = useTheme();
   const isDark = theme === 'dark';
 
   return (
     <div className="flex flex-col items-center gap-4 p-8">
       <button
-        onClick={(e) => setTheme(isDark ? 'light' : 'dark', e, 'bouncy-linear')}
+        onClick={(e) => setTheme(isDark ? 'light' : 'dark', e)}
         className="relative flex h-10 w-20 cursor-pointer items-center rounded-full bg-muted p-1 border shadow-inner overflow-hidden"
       >
         <motion.div

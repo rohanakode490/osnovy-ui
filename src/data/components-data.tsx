@@ -17,8 +17,8 @@ import { ThemeToggleBouncyLinearButton } from '@/components/showcase/theme-linea
 import ThemeToggleBouncyLinearButtonCode from '@/components/showcase/theme-linear-button?raw';
 import { ThemeToggleBouncyLinearSwitch } from '@/components/showcase/theme-linear-switch';
 import ThemeToggleBouncyLinearSwitchCode from '@/components/showcase/theme-linear-switch?raw';
-import { ThemeToggleBouncySwitch } from '@/components/showcase/theme-bouncy-switch';
-import ThemeToggleBouncySwitchCode from '@/components/showcase/theme-bouncy-switch?raw';
+import { ThemeToggleSwitch } from '@/components/showcase/theme-classic-switch';
+import ThemeToggleSwitchCode from '@/components/showcase/theme-classic-switch?raw';
 import { ThemeToggleClassic } from '@/components/showcase/theme-classic';
 import ThemeToggleClassicCode from '@/components/showcase/theme-classic?raw';
 import { ThemeToggleLRButton } from '@/components/showcase/theme-lr-button';
@@ -103,10 +103,10 @@ export const components: Component[] = [
     category: 'animations',
     preview: () => (
       <ThemePreviewWrapper caption='Circular Expansion'>
-      <ThemeToggleBouncySwitch />
+      <ThemeToggleSwitch />
       </ThemePreviewWrapper>
     ),
-    code: ThemeToggleBouncySwitchCode,
+    code: ThemeToggleSwitchCode,
     hook: useThemeCode,
     css: themeToggleCSS,
     usage:
