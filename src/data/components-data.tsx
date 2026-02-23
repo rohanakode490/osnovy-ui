@@ -29,6 +29,8 @@ import { TiltCard } from '@/components/showcase/tilt-card';
 import TiltCardCode from '@/components/showcase/tilt-card?raw';
 import useThemeCode from '@/hooks/use-theme?raw';
 
+import { ThemePreviewWrapper } from '@/components/theme-preview-wrapper';
+
 export interface Component {
   id: string;
   name: string;
@@ -44,40 +46,6 @@ export interface Component {
   isolate?: boolean;
 }
 
-const ThemePreviewWrapper = ({
-  children,
-  caption,
-}: {
-  children: React.ReactNode;
-  caption: string;
-}) => (
-  <div className='flex flex-col items-center gap-6'>
-    <div className='flex items-center justify-center min-h-10'>
-      {children}
-    </div>
-    <span className='text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-bold border-t border-border/50 pt-3 px-4 text-center'>
-      {caption}
-    </span>
-  </div>
-);
-
-const themeToggleCSS = `::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-  display: block;
-  position: absolute;
-  inset: 0;
-}
-
-::view-transition-new(root) {
-  z-index: 100;
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-}`;
-
 export const components: Component[] = [
   {
     id: 'theme-classic',
@@ -91,9 +59,8 @@ export const components: Component[] = [
     ),
     code: ThemeToggleClassicCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
-      'The standard icon-based theme switcher used in the app navbar. Features a self-contained <style> tag for the circular reveal animation.',
+      'The standard icon-based theme switcher used in the app navbar. Uses the Web Animations API for a self-contained circular reveal animation.',
     installation: ['npm install motion'],
   },
   {
@@ -103,14 +70,13 @@ export const components: Component[] = [
     category: 'animations',
     preview: () => (
       <ThemePreviewWrapper caption='Circular Expansion'>
-      <ThemeToggleSwitch />
+        <ThemeToggleSwitch />
       </ThemePreviewWrapper>
     ),
     code: ThemeToggleSwitchCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
-      'A pill-shaped switch that triggers a bouncy-linear circular reveal transition.',
+      'A pill-shaped switch that triggers a bouncy-linear circular reveal transition using the Web Animations API.',
     installation: ['npm install motion'],
   },
   {
@@ -125,9 +91,8 @@ export const components: Component[] = [
     ),
     code: ThemeToggleBouncyLinearButtonCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
-      'A button toggle that uses a complex linear() easing function for a top-to-bottom page slide with bounce.',
+      'A button toggle that uses a complex linear() easing function for a top-to-bottom page slide with bounce, powered by the Web Animations API.',
     installation: ['npm install motion'],
   },
   {
@@ -142,7 +107,6 @@ export const components: Component[] = [
     ),
     code: ThemeToggleBouncyLinearSwitchCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
       'An industrial-style switch that utilizes the bouncy linear() easing for its top-to-bottom entry effect.',
     installation: ['npm install motion'],
@@ -159,9 +123,8 @@ export const components: Component[] = [
     ),
     code: ThemeToggleLRButtonCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
-      'A large button toggle that triggers a sliding clip-path animation. Light to Dark slides left-to-right, Dark to Light slides right-to-left.',
+      'A large button toggle that triggers a sliding clip-path animation. Powered entirely by the Web Animations API within the component.',
     installation: ['npm install motion'],
   },
   {
@@ -176,9 +139,8 @@ export const components: Component[] = [
     ),
     code: ThemeToggleLRSwitchCode,
     hook: useThemeCode,
-    css: themeToggleCSS,
     usage:
-      'A classic switch component combined with a directional sliding View Transition.',
+      'A classic switch component combined with a directional sliding View Transition using the Web Animations API.',
     installation: ['npm install motion'],
   },
   {
@@ -190,7 +152,7 @@ export const components: Component[] = [
     code: AnimatedAvatarCode,
     usage:
       'A smooth avatar transition with a circular progress indicator. Requires custom "@keyframes progress" in your global CSS.',
-    installation: ['npm install motion', 'npx shadcn@latest add avatar'],
+    installation: ['npm install framer-motion', 'npx shadcn@latest add avatar'],
   },
   {
     id: 'dot-background',

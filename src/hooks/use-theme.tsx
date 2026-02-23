@@ -19,63 +19,98 @@ interface ThemeProviderProps {
 
 interface ThemeContextValue {
   theme: Theme;
-  setTheme: (theme: Theme, event?: React.MouseEvent, transitionType?: 'circle' | 'star' | 'left-to-right' | 'bouncy-linear') => void;
+  isDark: boolean;
+  setTheme: (
+    theme: Theme,
+    event?: React.MouseEvent,
+    animation?: {
+      keyframes: Keyframe[] | PropertyIndexedKeyframes | null;
+      options?: KeyframeAnimationOptions;
+    }
+  ) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'dark',
+  defaultTheme = 'system',
   storageKey = 'app-theme',
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
+
+    const applyTheme = () => {
+      root.classList.remove('light', 'dark');
+      let effectiveTheme = theme;
+
+      if (theme === 'system') {
+        effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)')
+          .matches
+          ? 'dark'
+          : 'light';
+      }
+
+      root.classList.add(effectiveTheme);
+      setIsDark(effectiveTheme === 'dark');
+    };
+
+    applyTheme();
 
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
-        ? 'dark'
-        : 'light';
-        setTheme(systemTheme);
-      root.classList.add(systemTheme);
-    } else {
-      root.classList.add(theme);
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handler = () => applyTheme();
+      mediaQuery.addEventListener('change', handler);
+      return () => mediaQuery.removeEventListener('change', handler);
     }
   }, [theme]);
 
   const value = useMemo(
     () => ({
       theme,
-      setTheme: (newTheme: Theme, event?: React.MouseEvent, transitionType: 'circle' | 'star' | 'left-to-right' | 'bouncy-linear' = 'circle') => {
-        if (!document.startViewTransition || !event) {
+      isDark,
+      setTheme: (
+        newTheme: Theme,
+        event?: React.MouseEvent,
+        animation?: {
+          keyframes: Keyframe[] | PropertyIndexedKeyframes | null;
+          options?: KeyframeAnimationOptions;
+        }
+      ) => {
+        const updateTheme = () => {
           localStorage.setItem(storageKey, newTheme);
           setTheme(newTheme);
+        };
+
+        if (!document.startViewTransition || !event) {
+          updateTheme();
           return;
         }
 
-        const x = event.clientX;
-        const y = event.clientY;
-
-        document.documentElement.style.setProperty('--x', `${x}px`);
-        document.documentElement.style.setProperty('--y', `${y}px`);
-        document.documentElement.setAttribute('data-transition', transitionType);
-        document.documentElement.setAttribute('data-direction', newTheme === 'dark' ? 'left' : 'right');
-
-        document.startViewTransition(() => {
+        const transition = document.startViewTransition(() => {
           flushSync(() => {
-            localStorage.setItem(storageKey, newTheme);
-            setTheme(newTheme);
+            updateTheme();
           });
         });
+
+        if (animation) {
+          transition.ready.then(() => {
+            document.documentElement.animate(animation.keyframes, {
+              duration: 500,
+              easing: 'ease-in-out',
+              ...animation.options,
+              pseudoElement: '::view-transition-new(root)',
+            });
+          });
+        }
       },
     }),
-    [theme, storageKey]
+    [theme, isDark, storageKey]
   );
 
   return (

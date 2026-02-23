@@ -3,13 +3,13 @@ import { Button } from './button';
 import { Moon, Sun } from 'lucide-react';
 
 export const ThemeButton = () => {
-  const { theme, setTheme } = useTheme();
+  const { isDark, setTheme } = useTheme();
 
   return (
     <Button
       variant='ghost'
       size='icon'
-      onClick={(e) => setTheme(theme === 'dark' ? 'light' : 'dark', e)}
+      onClick={(e) => setTheme(isDark ? 'light' : 'dark', e)}
       className='cursor-pointer'
     >
       <Sun className='h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />

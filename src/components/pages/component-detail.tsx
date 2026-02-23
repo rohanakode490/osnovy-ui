@@ -65,15 +65,20 @@ export const ComponentDetail = () => {
                 </CardHeader>
 
                 <CardContent>
-                  <div className={cn(
-                    'min-h-[400px] relative rounded-lg border-border/50 bg-muted/30 overflow-hidden flex items-center justify-center',
-                    component.layout === 'fullscreen' ? 'p-0' : 'p-12'
-                  )}>
+                  <div
+                    className={cn(
+                      'min-h-[400px] relative rounded-lg border-border/50 bg-muted/30 overflow-hidden flex items-center justify-center',
+                      component.layout === 'fullscreen' ? 'p-0' : 'p-12'
+                    )}
+                  >
                     {PreviewComponent ? (
-                      <div className={cn(
-                        'w-full h-full flex items-center justify-center',
-                        component.layout === 'fullscreen' && 'absolute inset-0'
-                      )}>
+                      <div
+                        className={cn(
+                          'w-full h-full flex items-center justify-center',
+                          component.layout === 'fullscreen' &&
+                            'absolute inset-0'
+                        )}
+                      >
                         <PreviewComponent />
                       </div>
                     ) : (
