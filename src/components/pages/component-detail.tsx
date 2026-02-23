@@ -14,6 +14,7 @@ import {
 } from '../ui/card';
 import { CopyButton } from '../ui/copy-button';
 import { ShikiHighlighter } from 'react-shiki';
+import { cn } from '@/lib/utils';
 
 export const ComponentDetail = () => {
   const { id } = useParams();
@@ -64,9 +65,17 @@ export const ComponentDetail = () => {
                 </CardHeader>
 
                 <CardContent>
-                  <div className='flex min-h-[300px] justify-center items-center rounded-lg border-border/50 bg-muted/30 p-12'>
+                  <div className={cn(
+                    'min-h-[400px] relative rounded-lg border-border/50 bg-muted/30 overflow-hidden flex items-center justify-center',
+                    component.layout === 'fullscreen' ? 'p-0' : 'p-12'
+                  )}>
                     {PreviewComponent ? (
-                      <PreviewComponent />
+                      <div className={cn(
+                        'w-full h-full flex items-center justify-center',
+                        component.layout === 'fullscreen' && 'absolute inset-0'
+                      )}>
+                        <PreviewComponent />
+                      </div>
                     ) : (
                       <div className='text-center'>
                         <div className='mb-4 text-sm text-muted-foreground'>

@@ -15,17 +15,17 @@ export function DotBackground({
   return (
     <div
       className={cn(
-        'relative h-full w-full overflow-hidden bg-background',
+        'relative h-full w-full overflow-hidden bg-background min-h-[inherit]',
         className
       )}
       {...props}
     >
       <div
-        className='absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'
+        className='absolute inset-0 flex items-center justify-center [mask:radial-gradient(ellipse_at_center,transparent_20%,black)]'
         style={{
-          backgroundImage: `radial-gradient(var(--color-muted-foreground) ${dotSize}px, transparent ${dotSize}px)`,
+          backgroundImage: `radial-gradient(var(--color-foreground) ${dotSize}px, transparent ${dotSize}px)`,
           backgroundSize: `${size}px ${size}px`,
-          opacity: 0.2,
+          opacity: 0.3,
         }}
       />
       <div className='relative z-10'>{children}</div>
